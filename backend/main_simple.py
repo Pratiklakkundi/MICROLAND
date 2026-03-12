@@ -83,7 +83,57 @@ users_db: Dict[str, dict] = {}
 projects_db: Dict[str, dict] = {}
 email_to_id: Dict[str, str] = {}
 
+# Initialize with test users
+def init_test_data():
+    """Create test users for quick testing"""
+    test_users = [
+        {
+            "name": "John Doe",
+            "email": "john@test.com",
+            "password": "password123",
+            "skills": ["React", "JavaScript", "UI/UX"],
+            "experience_level": "intermediate",
+            "availability": "available",
+            "bio": "Frontend developer passionate about creating beautiful user interfaces"
+        },
+        {
+            "name": "Jane Smith",
+            "email": "jane@test.com",
+            "password": "password123",
+            "skills": ["Python", "FastAPI", "MongoDB"],
+            "experience_level": "advanced",
+            "availability": "available",
+            "bio": "Backend engineer with expertise in building scalable APIs"
+        },
+        {
+            "name": "Mike Johnson",
+            "email": "mike@test.com",
+            "password": "password123",
+            "skills": ["React Native", "Mobile Development", "TypeScript"],
+            "experience_level": "intermediate",
+            "availability": "busy",
+            "bio": "Mobile developer creating cross-platform applications"
+        }
+    ]
+    
+    for user_data in test_users:
+        user_id = str(uuid.uuid4())
+        user_dict = user_data.copy()
+        user_dict["password"] = hash_password(user_data["password"])
+        user_dict["user_id"] = user_id
+        
+        users_db[user_id] = user_dict
+        email_to_id[user_data["email"]] = user_id
+    
+    print("\n✅ Test users created:")
+    print("   📧 john@test.com / password123")
+    print("   📧 jane@test.com / password123")
+    print("   📧 mike@test.com / password123\n")
+
 app = FastAPI(title="Team Builder API (Simple Mode)")
+
+# Initialize test data on startup
+init_test_data()
 
 app.add_middleware(
     CORSMiddleware,
