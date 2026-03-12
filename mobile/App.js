@@ -5,7 +5,7 @@ import * as LocalAuthentication from 'expo-local-authentication';
 
 export default function App() {
   const [authenticated, setAuthenticated] = useState(false);
-  const [webViewUrl] = useState('http://172.27.84.107:3000'); // Updated to your computer's IP
+  const [webViewUrl] = useState('http://localhost:3000'); // Use localhost since we're on the same machine
 
   const handleBiometricAuth = async () => {
     const hasHardware = await LocalAuthentication.hasHardwareAsync();

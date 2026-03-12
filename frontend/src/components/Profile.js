@@ -6,8 +6,7 @@ import {
   CheckIcon,
   XMarkIcon,
   SparklesIcon,
-  BriefcaseIcon,
-  ClockIcon
+  BriefcaseIcon
 } from '@heroicons/react/24/outline';
 import { getUsers, updateUser } from '../api';
 import toast from 'react-hot-toast';

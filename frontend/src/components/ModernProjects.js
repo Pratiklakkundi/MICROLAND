@@ -4,7 +4,6 @@ import {
   PlusIcon, 
   XMarkIcon, 
   SparklesIcon,
-  UserGroupIcon,
   CheckCircleIcon,
   BriefcaseIcon,
   FireIcon,

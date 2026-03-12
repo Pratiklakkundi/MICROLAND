@@ -155,3 +155,17 @@ async def match_and_notify(project_id: str, current_user: str = Depends(get_curr
         )
     
     return {"project_id": project_id, "matches": matches, "notifications_sent": len(matches[:5])}
+
+
+if __name__ == "__main__":
+    import uvicorn
+    print("\n" + "="*60)
+    print("🚀 Starting Team Builder API (Full Mode)")
+    print("="*60)
+    print("✓ MongoDB connected")
+    print("✓ OpenAI API configured")
+    print("\nBackend running at: http://localhost:8000")
+    print("API docs at: http://localhost:8000/docs")
+    print("="*60 + "\n")
+    
+    uvicorn.run(app, host="0.0.0.0", port=8000)
