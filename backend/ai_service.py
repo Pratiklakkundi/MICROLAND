@@ -43,7 +43,7 @@ async def build_team_with_ai(prompt: str, project_id: str = None) -> dict:
     user_message = f"{context}User Request: {prompt}\n\nAvailable Candidates:\n{json.dumps(user_data, indent=2)}"
     
     response = client.chat.completions.create(
-        model="gpt-4",
+        model="gpt-3.5-turbo",  # Changed from gpt-4 to gpt-3.5-turbo for broader compatibility
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_message}
